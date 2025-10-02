@@ -15,7 +15,7 @@
 #define debug(x) Serial.print(x)
 #define debugln(x) Serial.println(x)
 #define debugln2(x, y) Serial.println(x, y)
-#elseplankA32pointJMRI
+#else//plankA32pointJMRI
 #define debug(x)
 #define debugln(x)
 #define debugln2(x, y)
@@ -867,7 +867,7 @@ void setup() {
   Wire.begin();
   Serial.begin(19200);
   PCF1.begin();
-  //PCF2.begin();
+  PCF2.begin();
 
   FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NO_OF_SERVOS);
 
@@ -930,7 +930,7 @@ void setup() {
 
 
 
-  PCF1.write16(0Xffff);
+  PCF1.write16(0Xffff);//1111111111111111
   debug("PCF1 = ");
   debugln2(PCF1.read16(), BIN);
 
